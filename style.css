@@ -5,6 +5,22 @@ body {
   background-image: url('./images/bg.jpg');
 }
 
-#fd {
+.form {
   background-image: url('./images/form-bg.jpg');
+}
+
+textarea {
+  resize: none;
+}
+
+.height-1 {
+  height: 0.8rem;
+}
+
+.height-2 {
+  height: 1.2rem;
+}
+
+label {
+  font-size: 1.5rem;
 }
