@@ -1,4 +1,5 @@
 @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css';
 
 body {
   font-family: cursive;
@@ -23,4 +24,52 @@ textarea {
 
 label {
   font-size: 1.5rem;
+}
+
+.card {
+  background-image: url('./images/note-bg.png');
+  background-color: transparent;
+  border: none;
+  background-size: cover;
+  width: 200px;
+  height: 300px;
+
+}
+
+.card:hover ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+.close {
+  width: fit-content;
+}
+
+.task-text {
+  height: 170px;
+  overflow-y: scroll;
+}
+
+.task-date-time {
+  font-style: italic;
+  font-size: small;
+}
+
+.task-date-time > p {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
 }
