@@ -27,20 +27,20 @@ label {
 }
 
 .card {
+  animation: 1s ease-in fadein;
   background-image: url('./images/note-bg.png');
   background-color: transparent;
   border: none;
   background-size: cover;
   width: 200px;
   height: 300px;
-
 }
 
 .card:hover ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.6);
 }
 
-.underline{
+.underline {
   text-decoration: underline;
 }
 
@@ -72,4 +72,13 @@ label {
 
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
