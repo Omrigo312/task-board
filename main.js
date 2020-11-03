@@ -41,6 +41,7 @@ function save() {
       };
       saveTask(newTaskObject);
       loadNewTask(newTaskObject);
+      clearInputs();
     }
   } catch (error) {
     console.log(error);
