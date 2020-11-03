@@ -3,7 +3,6 @@ const deadlineDateElement = document.getElementById('deadlineDate');
 const deadlineTimeElement = document.getElementById('deadlineTime');
 const ALERT_DANGER = 'alert-danger';
 const ALERT_SUCCESS = 'alert-success';
-const CHARS = '';
 
 window.onload = function () {
   if (!localStorage.getItem('tasks')) {
@@ -22,29 +21,25 @@ function restrictPastDates() {
 }
 
 function save() {
-  try {
-    const task = taskTextElement.value;
-    const deadlineDate = deadlineDateElement.value;
-    const deadlineTime = deadlineTimeElement.value;
-    const deadline = deadlineTime
-      ? new Date(`${deadlineDate} ${deadlineTime}`)
-      : new Date(`${deadlineDate} 23:59:59`);
-    resetInputsAlert();
-    if (validateInput(task, deadline)) {
-      const formattedDate = createFormattedDate(deadline);
-      const newTaskObject = {
-        task,
-        deadlineDate: formattedDate,
-        deadlineTime,
-        created: Date.now(),
-        done: false,
-      };
-      saveTask(newTaskObject);
-      loadNewTask(newTaskObject);
-      clearInputs();
-    }
-  } catch (error) {
-    console.log(error);
+  const task = taskTextElement.value;
+  const deadlineDate = deadlineDateElement.value;
+  const deadlineTime = deadlineTimeElement.value;
+  const deadline = deadlineTime
+    ? new Date(`${deadlineDate} ${deadlineTime}`)
+    : new Date(`${deadlineDate} 23:59:59`);
+  resetInputsAlert();
+  if (validateInput(task, deadline)) {
+    const formattedDate = createFormattedDate(deadline);
+    const newTaskObject = {
+      id: Date.now(),
+      task,
+      deadlineDate: formattedDate,
+      deadlineTime,
+      done: false,
+    };
+    saveTask(newTaskObject);
+    loadNewTask(newTaskObject);
+    clearInputs();
   }
 }
 
@@ -62,13 +57,13 @@ function loadNewTask(taskObject) {
     classes.push('done');
   }
   newTask.classList.add(...classes);
-  newTask.id = taskObject.created;
+  newTask.id = taskObject.id;
   newTask.innerHTML = `<div class="card fade-in-2">
     <div class="row justify-content-end pt-4 px-3 pb-1">
-    <button onclick="crossTask(${taskObject.created})" class="btn close">
+    <button onclick="crossTask(${taskObject.id})" class="btn close">
       <i class="far fa-check-circle"></i>
       </button>
-      <button onclick="deleteTask(${taskObject.created})" class="btn close">
+      <button onclick="deleteTask(${taskObject.id})" class="btn close">
         <i class="far fa-times-circle"></i>
       </button>
     </div>
@@ -95,7 +90,7 @@ function deleteTask(taskCreationDate) {
   }, 500);
   let tasksArray = JSON.parse(localStorage.getItem('tasks'));
   tasksArray = tasksArray.filter((task) => {
-    return task.created !== taskCreationDate;
+    return task.id !== taskCreationDate;
   });
   localStorage.setItem('tasks', JSON.stringify(tasksArray));
 }
@@ -103,7 +98,7 @@ function deleteTask(taskCreationDate) {
 function crossTask(taskCreationDate) {
   let tasksArray = JSON.parse(localStorage.getItem('tasks'));
   const taskIndex = tasksArray.findIndex(
-    (task) => task.created === taskCreationDate
+    (task) => task.id === taskCreationDate
   );
   if (tasksArray[taskIndex].done) {
     document.getElementById(taskCreationDate).classList.remove('done');

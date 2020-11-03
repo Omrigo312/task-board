@@ -104,10 +104,10 @@ label {
 }
 
 @keyframes fadeout {
-  0% {
+  from {
     opacity: 1;
   }
-  100% {
+  to {
     opacity: 0;
   }
 }
