@@ -16,11 +16,11 @@
     <section id="form" class="mt-4">
       <div class="container text-center">
         <div class="row justify-content-center">
-          <div class="col-12">
+          <div id="formContainer" class="col-12">
             <form onsubmit="save(); return false;" class="form">
               <div class="container text-center">
                 <div class="row">
-                  <div class="col-7">
+                  <div class="col-12 col-md-7">
                     <div class="row justify-content-end my-3">
                       <div class="col-12 col-md-10">
                         <label class="height-2" for="taskDescription"
@@ -36,7 +36,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-5">
+                  <div class="col-12 col-md-5">
                     <div class="row mt-3 justify-content-center">
                       <div class="col-md-9">
                         <label for="deadlineDate" class="height-1"
@@ -63,13 +63,17 @@
                       </div>
                     </div>
                     <div class="row mt-3 justify-content-center">
-                      <div class="col-md-3 mb-1">
+                      <div class="col-lg-3 col-md-4 mb-1">
                         <button type="submit" class="btn btn-lg btn-primary">
                           Save
                         </button>
                       </div>
-                      <div class="col-md-3">
-                        <button type="button" class="btn btn-lg btn-dark">
+                      <div class="col-lg-3 col-md-5 mb-1">
+                        <button
+                          type="button"
+                          onclick="clearInputs()"
+                          class="btn btn-lg btn-dark"
+                        >
                           Clear
                         </button>
                       </div>
@@ -85,105 +89,10 @@
 
     <section id="tasks">
       <div class="container">
-        <div class="row justify-content-center justify-content-md-start">
-          <div class="col-8 col-lg-3 my-5">
-            <div class="card">
-              <div class="row justify-content-end pt-4 px-3 pb-1">
-                <button class="btn close">
-                  <i class="far fa-times-circle"></i>
-                </button>
-              </div>
-              <div class="task-text text-center px-3">
-                <p>
-                  When Keller Dover's daughter and her friend go missing, he
-                </p>
-              </div>
-              <div class="task-date-time mt-2 ml-3">
-                <p class="underline">Deadline</p>
-                <p>19/12/1998</p>
-                <p>03:44:54</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-8 col-lg-3 my-5">
-            <div class="card">
-              <div class="task-text text-center px-3 mt-5">
-                <p>
-                  A thief who steals corporate secrets through the use of
-                  dream-sharing technology is given the inverse task of planting
-                  an idea into the mind of a C.E.O. an idea into the mind of a
-                  C.E.O. an idea into the mind of a C.E.O. an idea into the mind
-                  of a C.E.O.
-                </p>
-              </div>
-              <div class="task-date-time mt-2 ml-3">
-                <p class="underline">Deadline</p>
-                <p>19/12/1998</p>
-                <p>03:44:54</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-8 col-lg-3 my-5">
-            <div class="card">
-              <div class="task-text text-center px-3 mt-5">
-                <p>
-                  When Keller Dover's daughter and her friend go missing, he
-                  takes matters into his own hands as the police pursue multiple
-                  leads and the pressure mounts.
-                </p>
-              </div>
-              <div class="task-date-time mt-3 ml-3">
-                <p>19/12/1998</p>
-                <p>03:44:54</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-8 col-lg-3 my-5">
-            <div class="card">
-              <div class="task-text text-center px-3 mt-5">
-                <p>
-                  When Keller Dover's daughter and her friend go missing, he
-                  takes matters into his own hands as the police pursue multiple
-                  leads and the pressure mounts.
-                </p>
-              </div>
-              <div class="task-date-time mt-3 ml-3">
-                <p>19/12/1998</p>
-                <p>03:44:54</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-8 col-lg-3 my-5">
-            <div class="card">
-              <div class="task-text text-center px-3 mt-5">
-                <p>
-                  When Keller Dover's daughter and her friend go missing, he
-                  takes matters into his own hands as the police pursue multiple
-                  leads and the pressure mounts.
-                </p>
-              </div>
-              <div class="task-date-time mt-3 ml-3">
-                <p>19/12/1998</p>
-                <p>03:44:54</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-8 col-lg-3 my-5">
-            <div class="card">
-              <div class="task-text text-center px-3 mt-5">
-                <p>
-                  When Keller Dover's daughter and her friend go missing, he
-                  takes matters into his own hands as the police pursue multiple
-                  leads and the pressure mounts.
-                </p>
-              </div>
-              <div class="task-date-time mt-3 ml-3">
-                <p>19/12/1998</p>
-                <p>03:44:54</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div
+          id="tasksRow"
+          class="row"
+        ></div>
       </div>
     </section>
 
