@@ -60,7 +60,6 @@ function loadNewTask(taskObject) {
   if (taskObject.done) {
     classes.push('done');
   }
-  // newTask.align = 'center';
   newTask.classList.add(...classes);
   newTask.id = taskObject.created;
   newTask.innerHTML = `<div class="card fade-in-2">
